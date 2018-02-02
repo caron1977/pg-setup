@@ -16,23 +16,10 @@ const config = {
 
 const pool = new Pool(config);
 
-var result = pool.query('SELECT * FROM blackboxcountry ORDER BY 1 LIMIT 10', function (err, res) {
+var result = pool.query('SELECT * FROM country ORDER BY 1 LIMIT 10', function (err, res) {
 
     for (var i = 0; i < res.rows.length; i++) {
 
-        console.log('blackboxcountry: %s', res.rows[i].code);
+        console.log('country: %s', res.rows[i].destatis, res.rows[i].countrycode3, res.rows[i].namede);
     }
 });
-// console.log("result: %s", result);
-
-/*
-  Transforms, 'progres://DBuser:secret@DBHost:#####/myDB', into
-  config = {
-    user: 'DBuser',
-    password: 'secret',
-    host: 'DBHost',
-    port: '#####',
-    database: 'myDB',
-    ssl: true
-  }
-*/
